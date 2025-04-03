@@ -15,12 +15,12 @@ public class CreateUserTest extends BaseTest {
     @Title("Create a new user")
     public void testCreateUser() {
         JSONObject userJson = new JSONObject();
-        userJson.put("name", "John Doe");
+        userJson.put("name", "Javier");
         userJson.put("job", "QA Engineer");
         sendPostRequest("/api/users", userJson.toString());
         verifyStatusCode(201);
         String actualName = response.jsonPath().getString("name");
-        Assert.assertEquals("John Doe", actualName);
+        Assert.assertEquals("Javier", actualName);
         String actualJob = response.jsonPath().getString("job");
         Assert.assertEquals("QA Engineer", actualJob);
         verifyFieldExists("id");
